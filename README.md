@@ -14,6 +14,6 @@ Gustavo Moretto Dalla Costa
 - Lombok
 
 ## Ideia do Projeto
-O 4Clutch-API é a parte backend do nosso projeto de E-commerce chamado 4Clutch, que se concentra na venda de skins para o popular jogo Counter-Strike: Global Offensive (CS:GO). 
+O 4Clutch-API é a parte backend do nosso projeto de E-commerce chamado 4Clutch, que se concentra na venda de skins para o popular jogo Counter-Strike 2 (CS2). 
 
 Nossa API fornece funcionalidades essenciais para o funcionamento do E-commerce, incluindo operações CRUD (Create, Read, Update, Delete) para gerenciar produtos, usuários, pedidos e autenticação de usuários.
