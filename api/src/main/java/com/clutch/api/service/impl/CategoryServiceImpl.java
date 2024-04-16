@@ -18,4 +18,9 @@ public class CategoryServiceImpl extends CrudServiceImpl<Category, Long> impleme
     protected JpaRepository<Category, Long> getRepository() {
         return categoryRepository;
     }
+
+    @Override
+    public long count() {
+        return 0;
+    }
 }

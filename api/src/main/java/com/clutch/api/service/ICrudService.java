@@ -34,4 +34,6 @@ public interface ICrudService<T, ID extends Serializable> {
     void delete(Iterable<? extends T> iterable);
 
     void deleteAll();
-    }
+
+    <D> D save();
+}
