@@ -35,5 +35,4 @@ public interface ICrudService<T, ID extends Serializable> {
 
     void deleteAll();
 
-    <D> D save();
 }
