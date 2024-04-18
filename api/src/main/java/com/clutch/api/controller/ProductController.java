@@ -14,7 +14,12 @@ import java.util.List;
 @RequestMapping("products")
 public class ProductController extends CrudController<Product,Long> {
 
-    private static IProductService productService;
+
+    private final IProductService productService;
+
+    public ProductController(IProductService productService) {
+        this.productService = productService;
+    }
 
     @Override
     protected ICrudService<Product, Long> getService() {
