@@ -12,7 +12,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Getter @Setter
+@Getter
+@Setter
 public class Category {
 
     @Id
@@ -23,6 +24,10 @@ public class Category {
     @Size(min = 2, max = 100)
     @Column(length = 100, nullable = false)
     private String name;
+
+    public Category(Long id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {

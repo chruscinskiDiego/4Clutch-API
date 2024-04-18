@@ -31,11 +31,14 @@ public class Product {
     private String description;
 
     @NotNull
-    private String ImageUrl;
+    private String imageUrl;
 
     @NotNull
     private BigDecimal price;
 
-    @ManyToOne
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
     private Category categoryId;
+
 }
