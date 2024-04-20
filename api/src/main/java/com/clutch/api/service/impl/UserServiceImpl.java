@@ -23,6 +23,14 @@ public class UserServiceImpl extends CrudServiceImpl<User, Long> implements IUse
     }
 
     @Override
+    protected void updateEntityFields(User existingEntity, User newEntity) {
+        existingEntity.setUsername(newEntity.getUsername());
+        existingEntity.setPassword(newEntity.getPassword());
+        existingEntity.setEmail(newEntity.getEmail());
+    }
+
+
+    @Override
     public long count() {
         return 0;
     }

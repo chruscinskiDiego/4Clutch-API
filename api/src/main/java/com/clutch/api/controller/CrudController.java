@@ -34,7 +34,7 @@ public abstract class CrudController<T, ID extends Serializable> {
     //PUT METHODS
     @PutMapping("{id}")
     public ResponseEntity<T> update(@PathVariable ID id, @RequestBody @Valid T entity) {
-        T updatedEntity = getService().save(entity);
+        T updatedEntity = getService().update(id, entity);
         return ResponseEntity.ok().body(updatedEntity);
     }
 

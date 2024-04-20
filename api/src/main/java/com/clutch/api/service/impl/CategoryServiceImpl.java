@@ -20,6 +20,12 @@ public class CategoryServiceImpl extends CrudServiceImpl<Category, Long> impleme
     }
 
     @Override
+    protected void updateEntityFields(Category existingEntity, Category newEntity) {
+        existingEntity.setName(newEntity.getName());
+    }
+
+
+    @Override
     public long count() {
         return 0;
     }

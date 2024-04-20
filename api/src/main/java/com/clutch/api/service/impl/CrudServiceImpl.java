@@ -1,6 +1,7 @@
 package com.clutch.api.service.impl;
 
 import com.clutch.api.service.ICrudService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,6 +38,24 @@ public abstract class CrudServiceImpl <T, ID extends Serializable> implements IC
     @Override
     public T saveAndFlush(T entity) {
         return getRepository().saveAndFlush(entity);
+    }
+
+    protected abstract void updateEntityFields(T existingEntity, T newEntity);
+
+    public T update(ID id, T newEntity) {
+        try {
+
+            T existingEntity = getRepository().getReferenceById(id);
+
+            updateEntityFields(existingEntity, newEntity);
+
+            return getRepository().save(existingEntity);
+
+        } catch (EntityNotFoundException e) {
+
+            throw new EntityNotFoundException();
+
+        }
     }
 
     @Override

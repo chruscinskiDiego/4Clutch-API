@@ -3,10 +3,13 @@ import com.clutch.api.model.Product;
 import com.clutch.api.service.ICrudService;
 import com.clutch.api.service.IProductService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("products")
@@ -25,14 +28,15 @@ public class ProductController extends CrudController<Product,Long> {
     }
 
     @Override
-    public ResponseEntity<Product> findOne(Long aLong) {
-        return super.findOne(aLong);
+    public ResponseEntity<Product> findOne(Long id) {
+        return super.findOne(id);
     }
 
     @Override
-    public ResponseEntity<Product> update(Long aLong, Product entity) {
-        return super.update(aLong, entity);
+    public ResponseEntity<Product> update(Long id, Product entity) {
+        return super.update(id, entity);
     }
+
 
     @Override
     public ResponseEntity<Product> create(Product entity) {
@@ -45,7 +49,7 @@ public class ProductController extends CrudController<Product,Long> {
     }
 
     @Override
-    public void delete(Long aLong) {
-        super.delete(aLong);
+    public void delete(Long id ) {
+        super.delete(id);
     }
 }
