@@ -2,6 +2,7 @@ package com.clutch.api.model;
 import com.clutch.api.annotation.UniqueCategoryName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import java.util.Objects;
@@ -20,8 +21,9 @@ public class Category {
     private Long id;
 
     @UniqueCategoryName
-    @NotNull
-    @Size(min = 2, max = 100)
+    @NotNull(message = "{com.clutch.api.category.name.NotNull}")
+    @Size(min = 4, max = 100, message = "{com.clutch.api.category.name.Size}")
+    @Pattern(regexp = "^[a-zA-Z0-9-]+$", message = "{com.clutch.api.category.name.Pattern}")
     @Column(length = 100, nullable = false)
     private String name;
 

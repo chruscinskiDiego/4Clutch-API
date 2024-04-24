@@ -1,4 +1,5 @@
 package com.clutch.api.repository;
+import com.clutch.api.model.Category;
 import com.clutch.api.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,4 +12,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p JOIN p.categoryId c WHERE c.id = :categoryId")
     List<Product> findByCategoryId(@Param("categoryId") Long categoryId);
+    Product findByName(String name);
 }

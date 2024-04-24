@@ -1,5 +1,6 @@
 package com.clutch.api.model;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import java.util.*;
 
@@ -18,8 +19,10 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @NotNull(message = "com.clutch.api.order.user.NotNull")
     private User user;
 
+    @NotNull(message = "com.clutch.api.order.date.NotNull")
     private Date date;
 
 }
