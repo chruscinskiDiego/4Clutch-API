@@ -32,12 +32,14 @@ public class Product {
     private String imageUrl;
 
     @NotNull
-    private BigDecimal price;
+    private float price;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category categoryId;
+
+    private int quantity;
 
    @Override
     public boolean equals(Object o) {

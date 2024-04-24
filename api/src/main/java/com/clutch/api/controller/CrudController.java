@@ -24,6 +24,11 @@ public abstract class CrudController<T, ID extends Serializable> {
         return entity != null ? ResponseEntity.ok().body(entity) : ResponseEntity.notFound().build();
     }
 
+    @GetMapping("count")
+    public ResponseEntity<Long> count() {
+        return ResponseEntity.ok(getService().count());
+    }
+
     //POST METHODS
     @PostMapping
     public ResponseEntity<T> create(@RequestBody @Valid T entity) {
@@ -44,4 +49,5 @@ public abstract class CrudController<T, ID extends Serializable> {
     public void delete(@PathVariable ID id) {
         getService().delete(id);
     }
+
 }

@@ -1,10 +1,7 @@
 package com.clutch.api.model;
-
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDateTime;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_order")
@@ -19,9 +16,10 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime data;
-
     @ManyToOne
-    @JoinColumn(name = "id_user")
-    User user_id;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private Date date;
+
 }

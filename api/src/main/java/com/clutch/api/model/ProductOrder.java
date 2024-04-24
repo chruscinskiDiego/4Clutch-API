@@ -1,11 +1,10 @@
 package com.clutch.api.model;
-
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
 
+@ToString
 @Entity
 @Getter
 @Setter
@@ -19,17 +18,16 @@ public class ProductOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private BigDecimal price;
+
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @NotNull
-    private BigDecimal price;
-
-    @NotNull
-    private Integer amount;
+    @ManyToOne
+    @Setter
+    @JoinColumn(name = "order_id")
+    private Order order;
 }
