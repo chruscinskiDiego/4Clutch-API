@@ -27,12 +27,13 @@ public class OrderController extends CrudController<Order, Long>{
         return new ResponseEntity<>(productOrders, HttpStatus.OK);
     }
 
-    @PostMapping("/{orderId}/productOrders")
+    @PostMapping("/{orderId}/product-orders")
     public ResponseEntity<List<ProductOrder>> addProductOrdersToOrder(@PathVariable Long orderId,
                                                                       @RequestBody List<ProductOrder> productOrders) {
         List<ProductOrder> addedProductOrders = productOrderService.addProductOrdersToOrder(orderId, productOrders);
         return new ResponseEntity<>(addedProductOrders, HttpStatus.CREATED);
     }
+
 
     public OrderController(IOrderService orderService, IProductOrderService productOrderService) {
         this.orderService = orderService;

@@ -27,7 +27,10 @@ public class ProductOrder {
     private Product product;
 
     @ManyToOne
-    @Setter
     @JoinColumn(name = "order_id")
     private Order order;
+
+    public Long getProductId() {
+        return product != null ? product.getId() : null;
+    }
 }
