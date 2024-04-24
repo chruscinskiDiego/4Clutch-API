@@ -3,4 +3,5 @@ import com.clutch.api.model.User;
 
 public interface IUserService extends ICrudService<User, Long>{
 
+    public User save(User user);
 }
