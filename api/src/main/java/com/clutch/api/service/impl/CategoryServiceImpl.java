@@ -23,7 +23,6 @@ public class CategoryServiceImpl extends CrudServiceImpl<Category, Long> impleme
         existingEntity.setName(newEntity.getName());
     }
 
-
     @Override
     public long count() {
         return 0;

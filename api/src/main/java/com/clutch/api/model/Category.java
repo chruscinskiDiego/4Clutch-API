@@ -1,5 +1,6 @@
 package com.clutch.api.model;
 
+import com.clutch.api.annotation.UniqueCategoryName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,6 +21,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueCategoryName
     @NotNull
     @Size(min = 2, max = 100)
     @Column(length = 100, nullable = false)

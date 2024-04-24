@@ -1,5 +1,6 @@
 package com.clutch.api.model;
 
+import com.clutch.api.annotation.UniqueUsername;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -19,6 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueUsername
     @Size(min = 2, max = 100)
     @Column(length = 100, nullable = false)
     private String username;
