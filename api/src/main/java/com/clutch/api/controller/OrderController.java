@@ -26,6 +26,12 @@ public class OrderController extends CrudController<Order, Long>{
         return new ResponseEntity<>(productOrders, HttpStatus.OK);
     }
 
+    @GetMapping("/find-by-username/{userId}")
+    public ResponseEntity<List<Order>> findByUsernameId(@PathVariable Long userId) {
+        List<Order> orders = orderService.findByUserId(userId);
+        return ResponseEntity.ok().body(orders);
+    }
+
     @PostMapping("/{orderId}/product-orders")
     public ResponseEntity<List<ProductOrder>> addProductOrdersToOrder(@PathVariable Long orderId,
                                                                       @RequestBody List<ProductOrder> productOrders) {

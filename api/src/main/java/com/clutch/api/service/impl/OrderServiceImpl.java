@@ -9,24 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IOrderService {
 
     @Autowired
     private final OrderRepository orderRepository;
-    private final UserRepository userRepository;
-    private final ProductOrderRepository productOrderRepository;
-    private final ProductRepository productRepository;
+
 
     public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository, ProductOrderRepository productOrderRepository, ProductRepository productRepository, ProductOrderServiceImpl productOrderService) {
         this.orderRepository = orderRepository;
-        this.userRepository = userRepository;
-        this.productOrderRepository = productOrderRepository;
-        this.productRepository = productRepository;
+    }
+
+    public List<Order> findByUserId(Long userId) {
+        return orderRepository.findByUserId(userId);
     }
 
 
