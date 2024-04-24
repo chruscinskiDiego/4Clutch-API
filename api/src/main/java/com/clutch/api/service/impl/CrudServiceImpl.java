@@ -78,12 +78,6 @@ public abstract class CrudServiceImpl <T, ID extends Serializable> implements IC
         return getRepository().existsById(id);
     }
 
-    /*@Override
-    @Transactional(readOnly = true)
-    public long count() {
-        return getRepository().count();
-    }*/
-
     @Override
     public void delete(ID id) {
         getRepository().deleteById(id);

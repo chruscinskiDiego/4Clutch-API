@@ -1,6 +1,7 @@
 package com.clutch.api.model;
 import com.clutch.api.annotation.UniqueUsername;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -24,17 +25,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @UniqueUsername
-    @Size(min = 2, max = 100)
+    @NotNull(message = "{com.clutch.api.user.username.NotNull}")
+    @Size(min = 6, max = 100, message = "{com.clutch.api.user.username.Size}")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "{com.clutch.api.user.username.Pattern}")
     @Column(length = 100, nullable = false)
     private String username;
 
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
-    @Size(min = 2, max = 100)
+    @NotNull(message = "{com.clutch.api.user.password.NotNull}")
+    @Size(min = 6, max = 100, message = "{com.clutch.api.user.password.Size}")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "{com.clutch.api.user.password.Pattern}")
     @Column(length = 100, nullable = false)
     private String password;
 
-    @Size(min = 2, max = 100)
+    @NotNull(message = "{com.clutch.api.user.email.NotNull}")
+    @Size(min = 6, max = 100, message = "{com.clutch.api.user.email.Size}")
+    @Pattern(regexp = ".*@.*", message = "{com.clutch.api.user.email.Patern}")
     @Column(length = 100, nullable = false)
     private String email;
 
