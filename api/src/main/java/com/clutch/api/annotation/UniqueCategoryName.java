@@ -1,10 +1,7 @@
 package com.clutch.api.annotation;
-
 import com.clutch.api.validation.UniqueCategoryNameValidator;
-import com.clutch.api.validation.UniqueUsernameValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

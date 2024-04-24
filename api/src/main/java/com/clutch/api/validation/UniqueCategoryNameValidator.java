@@ -1,8 +1,6 @@
 package com.clutch.api.validation;
 import com.clutch.api.annotation.UniqueCategoryName;
-import com.clutch.api.annotation.UniqueUsername;
 import com.clutch.api.repository.CategoryRepository;
-import com.clutch.api.repository.UserRepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;

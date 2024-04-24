@@ -1,7 +1,6 @@
 package com.clutch.api.model;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 
 @ToString

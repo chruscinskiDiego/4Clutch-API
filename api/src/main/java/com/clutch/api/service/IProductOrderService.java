@@ -1,6 +1,5 @@
 package com.clutch.api.service;
 import com.clutch.api.model.ProductOrder;
-
 import java.util.List;
 
 public interface IProductOrderService extends ICrudService<ProductOrder, Long> {

@@ -1,11 +1,9 @@
 package com.clutch.api.model;
-
 import com.clutch.api.annotation.UniqueCategoryName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-
 import java.util.Objects;
 
 @Entity
