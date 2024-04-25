@@ -1,6 +1,10 @@
 package com.clutch.api.controller;
 import com.clutch.api.service.ICrudService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +33,37 @@ public abstract class CrudController<T, ID extends Serializable> {
         return ResponseEntity.ok(getService().count());
     }
 
+    @GetMapping("page")
+    public ResponseEntity<Page<T>> findAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String order,
+            @RequestParam(required = false, defaultValue = "true") Boolean asc
+    ) {
+        try {
+            if (page < 0 || size <= 0) {
+                throw new IllegalArgumentException("Invalid page or size value");
+            }
+
+            Pageable pageable;
+            if (order != null && !order.isEmpty()) {
+                Sort.Direction direction = asc ? Sort.Direction.ASC : Sort.Direction.DESC;
+                pageable = PageRequest.of(page, size, direction, order);
+            } else {
+                pageable = PageRequest.of(page, size);
+            }
+
+            Page<T> result = getService().findAll(pageable);
+
+            return ResponseEntity.ok(result);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
     //POST METHODS
     @PostMapping
     public ResponseEntity<T> create(@RequestBody @Valid T entity) {
@@ -49,5 +84,6 @@ public abstract class CrudController<T, ID extends Serializable> {
     public void delete(@PathVariable ID id) {
         getService().delete(id);
     }
+
 
 }

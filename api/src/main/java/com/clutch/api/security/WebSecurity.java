@@ -42,7 +42,6 @@ public class WebSecurity {
         AuthenticationManager authenticationManager =
                 authenticationManagerBuilder.build();
 
-        // Configuração para o h2 funcionar com o Spring Security
         http.headers( headers ->
                 headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
 
