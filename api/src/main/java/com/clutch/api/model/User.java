@@ -25,6 +25,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueUsername
     @NotNull(message = "{com.clutch.api.user.username.NotNull}")
     @Size(min = 6, max = 100, message = "{com.clutch.api.user.username.Size}")
     @Pattern(regexp = "^[a-zA-Z]+$", message = "{com.clutch.api.user.username.Pattern}")
