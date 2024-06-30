@@ -44,9 +44,18 @@ public class Product {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category categoryId;
 
+    @NotNull(message = "{com.clutch.api.product.model.NotNull}")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "model_id", referencedColumnName = "id")
+    private Model modelId;
+
     @NotNull(message = "{com.clutch.api.product.quantity.NotNull}")
     @PositiveOrZero(message = "{com.clutch.api.product.quantity.PositiveOrZero}")
     private int quantity;
+
+    // Additional CS2 specific attributes
+    //private Rarity rarity;
+    //private Exterior exterior;
 
    @Override
     public boolean equals(Object o) {
