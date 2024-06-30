@@ -1,16 +1,23 @@
 server:
   port: 8025
+
 spring:
   main:
     allow-bean-definition-overriding: true
+
   datasource:
-    generate-unique-name: false
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    url: jdbc:postgresql://localhost:5432/4clutch
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
   jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update  # ou validate, create, etc., dependendo do seu uso
     properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
       javax:
         persistence:
           validation:
