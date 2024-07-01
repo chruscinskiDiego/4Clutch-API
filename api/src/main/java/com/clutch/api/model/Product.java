@@ -54,7 +54,6 @@ public class Product {
     private int quantity;
 
     // Additional CS2 specific attributes
-    //private Rarity rarity;
     //private Exterior exterior;
 
    @Override
