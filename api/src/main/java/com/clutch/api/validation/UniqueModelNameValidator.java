@@ -14,7 +14,7 @@ public class UniqueModelNameValidator implements ConstraintValidator<UniqueModel
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         if(modelRepository.findByName(s) == null){
-            return true;
+                return true;
         }
         return false;
     }
