@@ -1,53 +1,53 @@
 # 4Clutch API
 
-Backend de um e-commerce acadêmico de skins de Counter-Strike 2. Expõe recursos de produtos, categorias, modelos, usuários e pedidos para o [cliente web](https://github.com/chruscinskiDiego/4Clutch-Client).
+Backend for an academic Counter-Strike 2 skin e-commerce project. Exposes products, categories, models, users and orders to the [web client](https://github.com/chruscinskiDiego/4Clutch-Client).
 
-## Funcionalidades
+## Features
 
-- Cadastro e consulta de produtos e seus atributos.
-- Gerenciamento de usuários e autenticação com JWT.
-- Pedidos e associação dos produtos aos pedidos.
-- Validações, tratamento de erros e separação entre controllers, services e repositories.
+- Product creation and queries, including product attributes.
+- User management and JWT authentication.
+- Orders and their associated products.
+- Validation, error handling and separation into controllers, services and repositories.
 
-## Tecnologias
+## Technologies
 
-Java 17, Spring Boot, Spring Web, Spring Security, Spring Data JPA, Bean Validation, PostgreSQL e Lombok.
+Java 17, Spring Boot, Spring Web, Spring Security, Spring Data JPA, Bean Validation, PostgreSQL and Lombok.
 
-## Executar localmente
+## Run locally
 
-1. Instale JDK 17 e disponibilize um PostgreSQL.
-2. Crie o banco de desenvolvimento e ajuste a conexão em api/src/main/resources/application.yml. A configuração atual usa PostgreSQL; a dependência H2 está comentada no pom.xml.
-3. Execute na raiz:
+1. Install JDK 17 and make PostgreSQL available.
+2. Create a development database and adjust api/src/main/resources/application.yml. The current setup uses PostgreSQL; the H2 dependency is commented out in pom.xml.
+3. Run from the repository root:
 
 ```bash
 cd api
 sh mvnw spring-boot:run
 ```
 
-A porta configurada é 8025. Utilize credenciais próprias de desenvolvimento, sem reaproveitar valores de exemplo em ambientes públicos.
+The configured port is 8025. Use your own development credentials rather than reusing example values in public environments.
 
-## Organização
+## Structure
 
-- `controller/`: recursos HTTP.
-- `service/`: regras e operações.
-- `repository/` e `model/`: persistência e entidades.
-- `security/`: autenticação e autorização.
-- `validation/`: validadores específicos.
+- `controller/`: HTTP resources.
+- `service/`: rules and operations.
+- `repository/` and `model/`: persistence and entities.
+- `security/`: authentication and authorization.
+- `validation/`: custom validators.
 
-## Testes
+## Tests
 
 ```bash
 cd api
 sh mvnw test
 ```
 
-Os testes e a inicialização dependem da configuração do banco e não foram executados nesta revisão.
+Tests and startup require the database configuration. Validate them in your own environment.
 
-## Autores
+## Authors
 
 - Diego Chruscinski de Souza
 - Gustavo Moretto Dalla Costa
 
-## Contexto
+## Context
 
-Projeto acadêmico, sem integração de pagamentos reais ou operação comercial declarada.
+Academic project without real payment processing or a declared commercial operation.
