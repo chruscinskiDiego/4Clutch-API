@@ -1,53 +1,53 @@
-# 4Clutch-API
+# 4Clutch API
 
-## Membros
-Diego Chruscinski de Souza  
-Gustavo Moretto Dalla Costa
+Backend de um e-commerce acadêmico de skins de Counter-Strike 2. Expõe recursos de produtos, categorias, modelos, usuários e pedidos para o [cliente web](https://github.com/chruscinskiDiego/4Clutch-Client).
 
-## Tecnologias Utilizadas
-- Spring WEB
-- JPA
-- Validation
-- H2
-- Spring Security
-- DevTools
-- Lombok
+## Funcionalidades
 
-## Ideia do Projeto
-O 4Clutch-API é a parte backend do nosso projeto de E-commerce chamado 4Clutch, que se concentra na venda de skins para o popular jogo Counter-Strike 2 (CS2). 
+- Cadastro e consulta de produtos e seus atributos.
+- Gerenciamento de usuários e autenticação com JWT.
+- Pedidos e associação dos produtos aos pedidos.
+- Validações, tratamento de erros e separação entre controllers, services e repositories.
 
-Nossa API fornece funcionalidades essenciais para o funcionamento do E-commerce, incluindo operações CRUD (Create, Read, Update, Delete) para gerenciar produtos, usuários, pedidos e autenticação de usuários.
+## Tecnologias
 
+Java 17, Spring Boot, Spring Web, Spring Security, Spring Data JPA, Bean Validation, PostgreSQL e Lombok.
 
-## Documentação
+## Executar localmente
 
-**Introdução**
+1. Instale JDK 17 e disponibilize um PostgreSQL.
+2. Crie o banco de desenvolvimento e ajuste a conexão em api/src/main/resources/application.yml. A configuração atual usa PostgreSQL; a dependência H2 está comentada no pom.xml.
+3. Execute na raiz:
 
-Bem-vindo à documentação da nossa aplicação! Esta documentação fornece uma visão geral dos principais componentes e conceitos da nossa aplicação, ajudando você a entender sua estrutura e funcionamento.
+```bash
+cd api
+sh mvnw spring-boot:run
+```
 
-**Estrutura da Aplicação**
+A porta configurada é 8025. Utilize credenciais próprias de desenvolvimento, sem reaproveitar valores de exemplo em ambientes públicos.
 
-Nossa aplicação segue uma arquitetura modular, dividida em pacotes distintos que desempenham funções específicas. Aqui está uma visão geral dos principais pacotes:
+## Organização
 
-**Pacote de Segurança:** Contém classes responsáveis por proteger a aplicação e seus recursos, incluindo configurações de segurança, filtros de autenticação e autorização, constantes de segurança e serviços relacionados à autenticação e autorização de usuários.
-**Controller:** Este pacote contém classes responsáveis por receber requisições HTTP dos clientes. As classes dentro deste pacote têm métodos que correspondem a diferentes endpoints da API e definem o comportamento da API para cada tipo de requisição.
-**Service:** O pacote Service encapsula a lógica de negócios da aplicação. Ele fornece uma camada intermediária entre os controllers e os repositórios, isolando a lógica de negócios da camada de acesso a dados.
-**Repository:** Este pacote é responsável pelo acesso e manipulação de dados no banco de dados. Ele fornece uma abstração sobre a camada de persistência de dados e permite que as outras camadas da aplicação trabalhem com objetos de domínio em vez de consultas SQL diretas.
+- `controller/`: recursos HTTP.
+- `service/`: regras e operações.
+- `repository/` e `model/`: persistência e entidades.
+- `security/`: autenticação e autorização.
+- `validation/`: validadores específicos.
 
-**Componentes de Segurança**
-O pacote de segurança desempenha um papel crucial na nossa aplicação, garantindo que apenas usuários autorizados possam acessar os recursos e protegendo contra ameaças de segurança comuns. Aqui estão os principais componentes desse pacote:
+## Testes
 
-WebSecurity: Classe responsável por configurar as políticas de segurança da aplicação, como autenticação, autorização, manipulação de exceções e gerenciamento de sessões.
-SecurityConstants: Classe que define constantes usadas no sistema de segurança, como segredo usado para gerar tokens JWT e tempo de expiração do token.
-JWTAuthorizationFilter e JWTAuthenticationFilter: Filtros que interceptam requisições HTTP para realizar autenticação e autorização usando tokens JWT.
-EntryPointUnauthorizedHandler: Manipulador de ponto de entrada não autorizado que envia uma resposta HTTP com status 401 quando ocorre um erro de autenticação.
+```bash
+cd api
+sh mvnw test
+```
 
+Os testes e a inicialização dependem da configuração do banco e não foram executados nesta revisão.
 
-## Como Usar
+## Autores
 
-Para utilizar nossa aplicação, siga estas etapas:
+- Diego Chruscinski de Souza
+- Gustavo Moretto Dalla Costa
 
-Clone o Repositório: Clone o repositório da aplicação para sua máquina local.
-Configure o Ambiente: Certifique-se de ter as dependências necessárias instaladas e configure as variáveis de ambiente, se aplicável.
-Execute a Aplicação: Inicie a aplicação executando o comando apropriado, conforme as instruções no README do repositório.
-Acesse a API: Acesse os endpoints da API usando um cliente HTTP ou um navegador da web.
+## Contexto
+
+Projeto acadêmico, sem integração de pagamentos reais ou operação comercial declarada.
